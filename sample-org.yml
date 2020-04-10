@@ -1,0 +1,45 @@
+- &Org1
+  msp:
+    id: "Org1MSP"
+    admin:
+      identity: "Org1MSP-orgadmin"
+      secret: "org1Adminpw"
+    ibp:
+      display_name: "Org1 MSP"
+  ca: &Org1CA
+    id: "Org1CA"
+    admin_identity: "Org1MSP-admin"
+    admin_secret: "adminpw"
+    tls:
+      enabled: false
+    docker:
+      name: ca.org1.example.com
+      hostname: ca.org1.example.com
+      port: 18050
+    ibp:
+      display_name: "Org1 CA"
+  peers:
+    - &Org1Peer1
+      id: "Org1Peer1"
+      identity: "org1"
+      secret: "org1peer1pw"
+      database_type: couchdb
+      tls:
+        enabled: false
+        identity: "org1peer1tls"
+        secret: "org1peer1tlspw"
+      docker:
+        name: peer0.org1.example.com
+        hostname: peer0.org1.example.com
+        port: 18051
+        chaincode_port: 18052
+        operations_port: 18053
+        couchdb:
+          name: couchdb0.org1.example.com
+          hostname: couchdb0.org1.example.com
+          port: 18054
+      ibp:
+        display_name: "Org1 Peer1"
+  nodes: "{{ playbook_dir }}/LOCAL/NODES/Org1"
+  wallet: "{{ playbook_dir }}/LOCAL/WALLETS/Org1"
+  gateways: "{{ playbook_dir }}/LOCAL/GATEWAYS/Org1"

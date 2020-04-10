@@ -1,0 +1,24 @@
+{# SPDX-License-Identifier: Apache-2.0 #}
+{
+    "id": "{{ordererName}}",
+    "identity": "{{ordererName}}",
+    "secret": "password",
+    "tls":{
+        "enabled": {{org.tls}},
+        "identity": "{{ordererName}}tls",
+        "secret": "{{ordererName}}tlspw"
+    },
+    "consortium":{
+        "members": []
+    },
+    "docker": {
+        "name": "{{ordererName}}.{{org.name}}.com",
+        "hostname": "{{ordererName}}.{{org.name}}.com",
+        "port": "{{org.dockerPortPrefix}}051",
+        "operations_port": "{{org.dockerPortPrefix}}052",
+    },
+    "ibp":{
+        "display_name": "{{ordererName}}",
+        "cluster_name": "OrdererCluster"
+    }
+}

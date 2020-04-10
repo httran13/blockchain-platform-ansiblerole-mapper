@@ -1,0 +1,64 @@
+---
+- name: Deploy All
+  hosts: localhost
+  vars:
+    Orgs:
+      - {name: 'org1', pw: 'password1', nodeCount: 1, tls: false, dockerPortPrefix: 20, type: orderer }
+      - {name: 'org2', pw: 'password2', nodeCount: 2, tls: false, dockerPortPrefix: 21, type: peer }
+      - {name: 'org3', pw: 'password3', nodeCount: 3, tls: false, dockerPortPrefix: 22, type: peer }
+    list2:
+      - {chan: 'chan1'}
+      - {chan: 'chan2'}
+      - {chan: 'chan3'}
+    orgList: []
+    peerList: []
+  tasks:
+    - name: Create Peer Orgs
+      include_tasks: tasks/prep-peers.yaml
+      with_items: "{{ Orgs }}"
+      when: org['type'] == "peer"
+      loop_control:
+        loop_var: org
+        index_var: count
+
+    - name: Create Orderer Orgs
+      include_tasks: tasks/prep-orderers.yaml
+      with_items: "{{ Orgs }}"
+      when: org['type'] == "orderer"
+      loop_control:
+        loop_var: org
+        index_var: count
+
+    - name: Print the security group names to the console.
+      debug: var=orgList
+
+#    - name: Create Channels # TODO
+#    - name: Create CCs # TODO
+#    - name: Create Gateways # TODO
+
+
+
+#    - name: Iterate and build org
+#      shell: >
+#        set -o pipefail && echo '{{list1 | to_json }}' |
+#        jq
+#        '.name' - >> ./testhuy.json
+#      loop: "{{ list }}"
+#      loop_control:
+#        loop_var: list1
+#      register: TASK1
+#    - debug: "msg={{TASK1}}"
+
+
+
+
+
+
+#    - name: map channel
+#      shell: echo hi3
+#      register: TASK3
+#    - debug: msg="{{TASK3.stdout}}"
+#    - name: call playbook
+#      shell: echo hi4
+#      register: TASK4
+#    - debug: msg="{{TASK4.stdout}}"

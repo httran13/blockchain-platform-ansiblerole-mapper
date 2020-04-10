@@ -1,0 +1,23 @@
+---
+- name: Set facts
+  set_fact:
+    msp_id: "{{org.name}}MSP"
+    ca_id: "{{org.name}}CA"
+    admin: "{{org.name}}-admin"
+    ordererName: "{{org.name}}Orderer"
+    orderer: {}
+    consortiumMembers: [] # consortiumMembers are org objects
+
+- name: Build consortium member
+  set_fact:
+    consortiumMembers: "{{consortiumMembers + orgList}}"
+
+#- debug: var=consortiumMembers
+
+- name: Build orderer
+  set_fact:
+    orderer: "{{ lookup('template', 'orderer.json.j2') | combine({'consortium':{'members':consortiumMembers}}) }}"
+
+- name: Add orderer to orgList
+  set_fact:
+    orgList: "{{ orgList }} + [{{orderer}}]"

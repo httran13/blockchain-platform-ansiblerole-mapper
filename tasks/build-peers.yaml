@@ -1,0 +1,9 @@
+---
+- name: Set facts
+  set_fact:
+    peerName: "{{item}}"
+
+- name: Append peer to list
+  set_fact:
+    peers: "{{peers}} + [{{ lookup('template', 'peer.json.j2') }}]"
+

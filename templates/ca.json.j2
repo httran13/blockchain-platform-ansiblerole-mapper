@@ -1,0 +1,17 @@
+{# SPDX-License-Identifier: Apache-2.0 #}
+{
+    "id": "{{ca_id}}",
+    "admin_identity": "admin",
+    "admin_secret": "secret",
+    "tls":{
+        "enabled": {{org.tls}}
+    },
+    "docker":{
+        "name": "ca.{{org.name}}.com",
+        "hostname": "ca.{{org.name}}.com",
+        "port": "{{org.dockerPortPrefix}}050"
+    },
+    "ibp":{
+        "display_name": "{{org.name}} CA"
+    }
+}

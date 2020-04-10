@@ -1,0 +1,28 @@
+{# SPDX-License-Identifier: Apache-2.0 #}
+{
+    "id": "{{org.name}}Peer{{item}}",
+    "identity": "{{org.name}}Peer{{item}}",
+    "secret": "password",
+    "database_type": "couchdb",
+    "tls":{
+        "enabled": {{org.tls}},
+        "identity": "{{org.name}}Peer{{item}}tls",
+        "secret": "{{org.name}}Peer{{item}}tlspw"
+    },
+    "docker": {
+        "name": "{{org.name}}Peer{{item}}.{{org.name}}.com",
+        "hostname": "{{org.name}}Peer{{item}}.{{org.name}}.com",
+        "port": "{{org.dockerPortPrefix}}{{item}}055",
+        "chaincode_port": "{{org.dockerPortPrefix}}{{item}}056",
+        "operations_port": "{{org.dockerPortPrefix}}{{item}}057",
+        "couchdb": {
+            "name": "couchdb.{{org.name}}Peer{{item}}.{{org.name}}.com",
+            "hostname": "couchdb.{{org.name}}Peer{{item}}.{{org.name}}.com",
+            "port": "{{org.dockerPortPrefix}}{{item}}058"
+        },
+
+    },
+    "ibp": {
+        "display_name": "{{org.name}}Peer{{item}}"
+    }
+}
