@@ -6,4 +6,11 @@
 - name: Append peer to list
   set_fact:
     peers: "{{peers}} + [{{ lookup('template', 'peer.json.j2') }}]"
+    committing_peers: "{{committing_peers}} + [{{ lookup('template', 'peer.json.j2') }}]"
+
+- name: Append peer to achor list
+  set_fact:
+    anchor_peers: "{{anchor_peers}} + [{{ lookup('template', 'peer.json.j2') }}]"
+  when: item == "1"
+
 

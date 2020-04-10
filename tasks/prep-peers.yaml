@@ -6,6 +6,8 @@
     admin: "{{org.name}}-admin"
     peerName: "{{org.name}}Peer{{count}}"
     peers: []
+    anchor_peers: []
+    committing_peers: []
 
 - name: Get peer list
   include_tasks: build-peers.yaml
@@ -15,7 +17,7 @@
 
 - name: add items to array
   set_fact:
-    orgList: "{{ orgList }} + [ {{ lookup('template', 'org.json.j2') | combine({'peers': peers})   }} ]"
+    orgList: "{{ orgList }} + [ {{ lookup('template', 'org.json.j2') | combine({'peers': peers}) | combine({'committing_peers': committing_peers, 'anchor_peers': anchor_peers }) }} ]"
 
 
 
