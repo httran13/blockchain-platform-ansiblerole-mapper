@@ -1,0 +1,22 @@
+## take the org list, if peers exists, take peer list and add to gateway list
+
+---
+- name: Set facts
+  set_fact:
+    all_peers: []
+
+- name: Build all peers list
+  set_fact:
+    all_peers: "{{all_peers + org.peers}}"
+  with_items: "{{orgList}}"
+  loop_control:
+    loop_var: org
+  when: org.peers is defined
+
+- name: Build Gateways
+  set_fact:
+    gatewayList: "{{gatewayList}} + [{{ lookup('template', 'gateway2.json.j2')}}]"
+  with_items: "{{orgList}}"
+  loop_control:
+    loop_var: org
+  when: org.peers is defined

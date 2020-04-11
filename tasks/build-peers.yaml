@@ -7,8 +7,9 @@
   set_fact:
     peers: "{{peers}} + [{{ lookup('template', 'peer.json.j2') }}]"
     committing_peers: "{{committing_peers}} + [{{ lookup('template', 'peer.json.j2') }}]"
+    endorsing_peers: "{{endorsing_peers}} + [{{ lookup('template', 'peer.json.j2') }}]"
 
-- name: Append peer to achor list
+- name: Append peer to anchor list
   set_fact:
     anchor_peers: "{{anchor_peers}} + [{{ lookup('template', 'peer.json.j2') }}]"
   when: item == "1"

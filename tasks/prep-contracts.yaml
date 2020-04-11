@@ -1,0 +1,7 @@
+---
+
+- name: Build Contracts
+  include_tasks: build-contract.yaml
+  with_items: "{{Contracts}}"
+  loop_control:
+    loop_var: cc

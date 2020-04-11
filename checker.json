@@ -1,0 +1,404 @@
+{
+  "gatewayList": [
+    {
+      "name": "org2 Gateway",
+      "organization": {
+        "anchor_peers": [
+          {
+            "database_type": "couchdb",
+            "docker": {
+              "chaincode_port": "21156",
+              "couchdb": {
+                "hostname": "couchdb.org2Peer1.org2.com",
+                "name": "couchdb.org2Peer1.org2.com",
+                "port": "21158"
+              },
+              "hostname": "org2Peer1.org2.com",
+              "name": "org2Peer1.org2.com",
+              "operations_port": "21157",
+              "port": "21155"
+            },
+            "ibp": {
+              "display_name": "org2Peer1"
+            },
+            "id": "org2Peer1",
+            "identity": "org2Peer1",
+            "secret": "password",
+            "tls": {
+              "enabled": false,
+              "identity": "org2Peer1tls",
+              "secret": "org2Peer1tlspw"
+            }
+          }
+        ],
+        "ca": {
+          "admin_identity": "admin",
+          "admin_secret": "secret",
+          "docker": {
+            "hostname": "ca.org2.com",
+            "name": "ca.org2.com",
+            "port": "21050"
+          },
+          "ibp": {
+            "display_name": "org2 CA"
+          },
+          "id": "org2CA",
+          "tls": {
+            "enabled": false
+          }
+        },
+        "committing_peers": [
+          {
+            "database_type": "couchdb",
+            "docker": {
+              "chaincode_port": "21156",
+              "couchdb": {
+                "hostname": "couchdb.org2Peer1.org2.com",
+                "name": "couchdb.org2Peer1.org2.com",
+                "port": "21158"
+              },
+              "hostname": "org2Peer1.org2.com",
+              "name": "org2Peer1.org2.com",
+              "operations_port": "21157",
+              "port": "21155"
+            },
+            "ibp": {
+              "display_name": "org2Peer1"
+            },
+            "id": "org2Peer1",
+            "identity": "org2Peer1",
+            "secret": "password",
+            "tls": {
+              "enabled": false,
+              "identity": "org2Peer1tls",
+              "secret": "org2Peer1tlspw"
+            }
+          }
+        ],
+        "endorsing_peers": [
+          {
+            "database_type": "couchdb",
+            "docker": {
+              "chaincode_port": "21156",
+              "couchdb": {
+                "hostname": "couchdb.org2Peer1.org2.com",
+                "name": "couchdb.org2Peer1.org2.com",
+                "port": "21158"
+              },
+              "hostname": "org2Peer1.org2.com",
+              "name": "org2Peer1.org2.com",
+              "operations_port": "21157",
+              "port": "21155"
+            },
+            "ibp": {
+              "display_name": "org2Peer1"
+            },
+            "id": "org2Peer1",
+            "identity": "org2Peer1",
+            "secret": "password",
+            "tls": {
+              "enabled": false,
+              "identity": "org2Peer1tls",
+              "secret": "org2Peer1tlspw"
+            }
+          }
+        ],
+        "gateway_peers": [
+          {
+            "database_type": "couchdb",
+            "docker": {
+              "chaincode_port": "21156",
+              "couchdb": {
+                "hostname": "couchdb.org2Peer1.org2.com",
+                "name": "couchdb.org2Peer1.org2.com",
+                "port": "21158"
+              },
+              "hostname": "org2Peer1.org2.com",
+              "name": "org2Peer1.org2.com",
+              "operations_port": "21157",
+              "port": "21155"
+            },
+            "ibp": {
+              "display_name": "org2Peer1"
+            },
+            "id": "org2Peer1",
+            "identity": "org2Peer1",
+            "secret": "password",
+            "tls": {
+              "enabled": false,
+              "identity": "org2Peer1tls",
+              "secret": "org2Peer1tlspw"
+            }
+          },
+          {
+            "database_type": "couchdb",
+            "docker": {
+              "chaincode_port": "22156",
+              "couchdb": {
+                "hostname": "couchdb.org3Peer1.org3.com",
+                "name": "couchdb.org3Peer1.org3.com",
+                "port": "22158"
+              },
+              "hostname": "org3Peer1.org3.com",
+              "name": "org3Peer1.org3.com",
+              "operations_port": "22157",
+              "port": "22155"
+            },
+            "ibp": {
+              "display_name": "org3Peer1"
+            },
+            "id": "org3Peer1",
+            "identity": "org3Peer1",
+            "secret": "password",
+            "tls": {
+              "enabled": false,
+              "identity": "org3Peer1tls",
+              "secret": "org3Peer1tlspw"
+            }
+          }
+        ],
+        "gateways": "/Users/huytran/workspace/ibm.github.com/bc-accelerator/devops/ansible_poc/GATEWAYS/org2",
+        "msp": {
+          "admin": {
+            "identity": "org2-admin",
+            "secret": "org2-adminsecret"
+          },
+          "ibp": {
+            "display_name": "org2MSP"
+          },
+          "id": "org2MSP"
+        },
+        "nodes": "/Users/huytran/workspace/ibm.github.com/bc-accelerator/devops/ansible_poc/NODES/org2",
+        "peers": [
+          {
+            "database_type": "couchdb",
+            "docker": {
+              "chaincode_port": "21156",
+              "couchdb": {
+                "hostname": "couchdb.org2Peer1.org2.com",
+                "name": "couchdb.org2Peer1.org2.com",
+                "port": "21158"
+              },
+              "hostname": "org2Peer1.org2.com",
+              "name": "org2Peer1.org2.com",
+              "operations_port": "21157",
+              "port": "21155"
+            },
+            "ibp": {
+              "display_name": "org2Peer1"
+            },
+            "id": "org2Peer1",
+            "identity": "org2Peer1",
+            "secret": "password",
+            "tls": {
+              "enabled": false,
+              "identity": "org2Peer1tls",
+              "secret": "org2Peer1tlspw"
+            }
+          }
+        ],
+        "wallet": "/Users/huytran/workspace/ibm.github.com/bc-accelerator/devops/ansible_poc/WALLETS/org2"
+      }
+    },
+    {
+      "name": "org3 Gateway",
+      "organization": {
+        "anchor_peers": [
+          {
+            "database_type": "couchdb",
+            "docker": {
+              "chaincode_port": "22156",
+              "couchdb": {
+                "hostname": "couchdb.org3Peer1.org3.com",
+                "name": "couchdb.org3Peer1.org3.com",
+                "port": "22158"
+              },
+              "hostname": "org3Peer1.org3.com",
+              "name": "org3Peer1.org3.com",
+              "operations_port": "22157",
+              "port": "22155"
+            },
+            "ibp": {
+              "display_name": "org3Peer1"
+            },
+            "id": "org3Peer1",
+            "identity": "org3Peer1",
+            "secret": "password",
+            "tls": {
+              "enabled": false,
+              "identity": "org3Peer1tls",
+              "secret": "org3Peer1tlspw"
+            }
+          }
+        ],
+        "ca": {
+          "admin_identity": "admin",
+          "admin_secret": "secret",
+          "docker": {
+            "hostname": "ca.org3.com",
+            "name": "ca.org3.com",
+            "port": "22050"
+          },
+          "ibp": {
+            "display_name": "org3 CA"
+          },
+          "id": "org3CA",
+          "tls": {
+            "enabled": false
+          }
+        },
+        "committing_peers": [
+          {
+            "database_type": "couchdb",
+            "docker": {
+              "chaincode_port": "22156",
+              "couchdb": {
+                "hostname": "couchdb.org3Peer1.org3.com",
+                "name": "couchdb.org3Peer1.org3.com",
+                "port": "22158"
+              },
+              "hostname": "org3Peer1.org3.com",
+              "name": "org3Peer1.org3.com",
+              "operations_port": "22157",
+              "port": "22155"
+            },
+            "ibp": {
+              "display_name": "org3Peer1"
+            },
+            "id": "org3Peer1",
+            "identity": "org3Peer1",
+            "secret": "password",
+            "tls": {
+              "enabled": false,
+              "identity": "org3Peer1tls",
+              "secret": "org3Peer1tlspw"
+            }
+          }
+        ],
+        "endorsing_peers": [
+          {
+            "database_type": "couchdb",
+            "docker": {
+              "chaincode_port": "22156",
+              "couchdb": {
+                "hostname": "couchdb.org3Peer1.org3.com",
+                "name": "couchdb.org3Peer1.org3.com",
+                "port": "22158"
+              },
+              "hostname": "org3Peer1.org3.com",
+              "name": "org3Peer1.org3.com",
+              "operations_port": "22157",
+              "port": "22155"
+            },
+            "ibp": {
+              "display_name": "org3Peer1"
+            },
+            "id": "org3Peer1",
+            "identity": "org3Peer1",
+            "secret": "password",
+            "tls": {
+              "enabled": false,
+              "identity": "org3Peer1tls",
+              "secret": "org3Peer1tlspw"
+            }
+          }
+        ],
+        "gateway_peers": [
+          {
+            "database_type": "couchdb",
+            "docker": {
+              "chaincode_port": "21156",
+              "couchdb": {
+                "hostname": "couchdb.org2Peer1.org2.com",
+                "name": "couchdb.org2Peer1.org2.com",
+                "port": "21158"
+              },
+              "hostname": "org2Peer1.org2.com",
+              "name": "org2Peer1.org2.com",
+              "operations_port": "21157",
+              "port": "21155"
+            },
+            "ibp": {
+              "display_name": "org2Peer1"
+            },
+            "id": "org2Peer1",
+            "identity": "org2Peer1",
+            "secret": "password",
+            "tls": {
+              "enabled": false,
+              "identity": "org2Peer1tls",
+              "secret": "org2Peer1tlspw"
+            }
+          },
+          {
+            "database_type": "couchdb",
+            "docker": {
+              "chaincode_port": "22156",
+              "couchdb": {
+                "hostname": "couchdb.org3Peer1.org3.com",
+                "name": "couchdb.org3Peer1.org3.com",
+                "port": "22158"
+              },
+              "hostname": "org3Peer1.org3.com",
+              "name": "org3Peer1.org3.com",
+              "operations_port": "22157",
+              "port": "22155"
+            },
+            "ibp": {
+              "display_name": "org3Peer1"
+            },
+            "id": "org3Peer1",
+            "identity": "org3Peer1",
+            "secret": "password",
+            "tls": {
+              "enabled": false,
+              "identity": "org3Peer1tls",
+              "secret": "org3Peer1tlspw"
+            }
+          }
+        ],
+        "gateways": "/Users/huytran/workspace/ibm.github.com/bc-accelerator/devops/ansible_poc/GATEWAYS/org3",
+        "msp": {
+          "admin": {
+            "identity": "org3-admin",
+            "secret": "org3-adminsecret"
+          },
+          "ibp": {
+            "display_name": "org3MSP"
+          },
+          "id": "org3MSP"
+        },
+        "nodes": "/Users/huytran/workspace/ibm.github.com/bc-accelerator/devops/ansible_poc/NODES/org3",
+        "peers": [
+          {
+            "database_type": "couchdb",
+            "docker": {
+              "chaincode_port": "22156",
+              "couchdb": {
+                "hostname": "couchdb.org3Peer1.org3.com",
+                "name": "couchdb.org3Peer1.org3.com",
+                "port": "22158"
+              },
+              "hostname": "org3Peer1.org3.com",
+              "name": "org3Peer1.org3.com",
+              "operations_port": "22157",
+              "port": "22155"
+            },
+            "ibp": {
+              "display_name": "org3Peer1"
+            },
+            "id": "org3Peer1",
+            "identity": "org3Peer1",
+            "secret": "password",
+            "tls": {
+              "enabled": false,
+              "identity": "org3Peer1tls",
+              "secret": "org3Peer1tlspw"
+            }
+          }
+        ],
+        "wallet": "/Users/huytran/workspace/ibm.github.com/bc-accelerator/devops/ansible_poc/WALLETS/org3"
+      }
+    }
+  ]
+}

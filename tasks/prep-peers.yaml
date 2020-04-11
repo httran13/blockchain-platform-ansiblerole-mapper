@@ -8,6 +8,8 @@
     peers: []
     anchor_peers: []
     committing_peers: []
+    endorsing_peers: []
+    gateway_peers: []
 
 - name: Get peer list
   include_tasks: build-peers.yaml
@@ -17,50 +19,4 @@
 
 - name: add items to array
   set_fact:
-    orgList: "{{ orgList }} + [ {{ lookup('template', 'org.json.j2') | combine({'peers': peers}) | combine({'committing_peers': committing_peers, 'anchor_peers': anchor_peers }) }} ]"
-
-
-
-#- hosts: "*foo"
-#  vars:
-#    redis_instances: 10
-#
-#  tasks:
-#    - name: register redis instances
-#      debug: msg="do something"
-#      with_sequence: start=6379 end={{ 6379 + (redis_instances - 1) }}
-#      register: monit_redis_services
-#
-#    - set_fact:
-#        mysequence: "{{ monit_redis_services.results | map(attribute='item') | list }}"
-#
-#    - debug: var=mysequence
-#
-#
-#
-#- name: build org json
-#  copy:
-#    content: "{{ lookup('template', 'org.json.j2') }}"
-#    dest: "./testhuy{{count}}.json"
-#
-#- name: build the array list of orgs
-#  shell: >
-#    set -o pipefail; echo '{{orgList | to_json}}' | cat './testhuy{{count}}.json' | jq -r '.'
-##    jq --argjson org '{{}}' '.[] += [$org]' -
-#  register: output1
-#- debug: msg="{{output1.stdout}}"
-
-#set_fact:
-#  ec2_security_group_names: "{{ ec2_security_group_names }} + [ '{{ item.group_name }}' ]"
-
-#    jq -e --arg msp $msp_id '.fabric.localNetworkStructure[] | select(.type == "msp" and .msp_id == $msp )' $tmpConfigFile >/dev/null
-#    if [[ $? -ne 0 ]];then
-#      obj_display_name=${msp_id%*MSP}
-#      obj_id=$(echo $obj_display_name | tr '[:upper:]' '[:lower:]')
-#
-#      mspObject="{\"type\":\"msp\", \"id\":\"${obj_id}\", \"display_name\":\"${obj_display_name}\", \"msp_id\":\"${msp_id}\"}"
-#      jq --argjson obj "$mspObject" '.fabric.localNetworkStructure += [$obj]' < $tmpConfigFile > temp && mv temp $tmpConfigFile
-#    fi
-#
-#    ## add the peer/ca objects
-#    jq --argjson obj "$(cat $d)" '.fabric.localNetworkStructure += [$obj]' < $tmpConfigFile > temp && mv temp $tmpConfigFile
+    orgList: "{{ orgList }} + [ {{ lookup('template', 'org.json.j2') | combine({'peers': peers}) | combine({'committing_peers': committing_peers, 'anchor_peers': anchor_peers, 'endorsing_peers': endorsing_peers  }) }} ]"

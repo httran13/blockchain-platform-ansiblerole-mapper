@@ -1,5 +1,8 @@
 {# SPDX-License-Identifier: Apache-2.0 #}
 {
     "msp": {{lookup('template', 'msp.json.j2')}},
-    "ca": {{lookup('template', 'ca.json.j2')}}
+    "ca": {{lookup('template', 'ca.json.j2')}},
+    "nodes": "{{ playbook_dir }}/NODES/{{org.name}}",
+    "wallet": "{{ playbook_dir }}/WALLETS/{{org.name}}",
+    "gateways": "{{ playbook_dir }}/GATEWAYS/{{org.name}}"
 }

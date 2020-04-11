@@ -1,0 +1,10 @@
+{
+    "api_url": "grpc://localhost:20051",
+    "container_name": "org1Orderer.org1.com",
+    "identity": "org1-admin",
+    "msp_id": "org1MSP",
+    "name": "org1Orderer",
+    "short_name": "org1Orderer",
+    "type": "fabric-orderer",
+    "wallet": "org1"
+}

@@ -1,0 +1,11 @@
+{
+    "api_url": "http://localhost:22050",
+    "ca_name": "ca",
+    "container_name": "ca.org3.com",
+    "identity": "admin",
+    "msp_id": "org3MSP",
+    "name": "org3CA",
+    "short_name": "org3CA",
+    "type": "fabric-ca",
+    "wallet": "org3"
+}

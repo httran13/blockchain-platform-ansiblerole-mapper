@@ -20,4 +20,4 @@
 
 - name: Add orderer to orgList
   set_fact:
-    orgList: "{{ orgList }} + [{{orderer}}]"
+    orgList: "{{ orgList }} + [ {{ lookup('template', 'org.json.j2') | combine({'orderer':orderer}) }} ]"

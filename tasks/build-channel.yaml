@@ -1,0 +1,17 @@
+---
+- name: Set facts
+  set_fact:
+    members: []
+
+- name: Set channel members
+  set_fact:
+    members: "{{members}} + [{{org}}]"
+  with_items: "{{orgList}}"
+  when: org.peers is defined
+  loop_control:
+    loop_var: org
+
+
+- name: Build channel
+  set_fact:
+    chanList: "{{ chanList }} + [ {{ lookup('template', 'channel.json.j2') | combine({'orderer': orderer}) | combine({'members': members}) }} ]"

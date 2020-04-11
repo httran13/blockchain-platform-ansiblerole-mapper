@@ -1,0 +1,20 @@
+---
+- name: Set facts
+  set_fact:
+    orderer: {}
+
+- name: Get orderer
+  set_fact:
+    orderer: "{{org.orderer}}"
+  with_items: "{{orgList}}"
+  when: org.orderer is defined
+  loop_control:
+    loop_var: org
+
+- name: Build Channels
+  include_tasks: build-channel.yaml
+  with_items: "{{Chans}}"
+  loop_control:
+    loop_var: chan
+    index_var: count
+

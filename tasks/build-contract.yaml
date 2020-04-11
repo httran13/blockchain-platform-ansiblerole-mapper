@@ -1,0 +1,41 @@
+---
+- name: Set facts
+  set_fact:
+    cc_package: "{{cc.location}}/{{cc.name}}@{{cc.version}}.cds"
+    cc_name: "{{cc.name}}"
+    cc_version: "{{cc.version}}"
+    channels: []
+    policy: "OutOf(1, "
+    endorsing_members: []
+
+- name: Build endorsing members
+  set_fact:
+    endorsing_members: "{{endorsing_members}} + [{{org}}]"
+  with_items: "{{orgList}}"
+  loop_control:
+    loop_var: org
+  when: org.peers is defined
+
+- name: Build endorsement policy
+  set_fact:
+    policy: "{{policy}} '{{org.name}}MSP.member',"
+  with_items: "{{Orgs}}"
+  when: org.type == 'peer'
+  loop_control:
+    loop_var: org
+
+- name: Finish endorsement policy
+  set_fact:
+    policy: "{{policy[:-1]}} )"
+
+- name: Build Channels
+  set_fact:
+    channels: "{{channels}} + [{{ chan | combine({'endorsement_policy': policy, 'endorsing_members': endorsing_members}) }} ]"
+  with_items: "{{chanList}}"
+  loop_control:
+    loop_var: chan
+
+- name: Build Contract
+  set_fact:
+    contractList: "{{contractList}} + [{{ lookup('template', 'contract.json.j2') | combine({'channels':channels}) }}] "
+
