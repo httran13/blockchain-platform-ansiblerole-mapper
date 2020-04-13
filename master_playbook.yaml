@@ -3,19 +3,21 @@
   hosts: localhost
   vars:
     Orgs:
-      - {name: 'org1', pw: 'password1', nodeCount: 1, tls: false, dockerPortPrefix: 20, type: orderer }
-      - {name: 'org2', pw: 'password2', nodeCount: 1, tls: false, dockerPortPrefix: 21, type: peer }
-      - {name: 'org3', pw: 'password3', nodeCount: 1, tls: false, dockerPortPrefix: 22, type: peer }
+      - {name: 'org1', nodeCount: 1, tls: false, dockerPortPrefix: 20, type: orderer }
+      - {name: 'org2', nodeCount: 2, tls: false, dockerPortPrefix: 21, type: peer }
+      - {name: 'org3', nodeCount: 3, tls: false, dockerPortPrefix: 22, type: peer }
     Chans:
       - {name: 'chan1'}
-#      - {name: 'chan2'}
+      - {name: 'chan2'}
     Contracts:
       - {name: "fabcar", version: "1.0.0", location: "{{playbook_dir}}"}
-#      - {name: "huycar", version: "5.0.0", location: "{{playbook_dir}}"}
+      - {name: "org2cc", version: "1.0.0", location: "{{playbook_dir}}"}
+      - {name: "huy2", version : "1.0.0", location: "{{playbook_dir}}"}
     orgList: []
     chanList: []
     contractList: []
     gatewayList: []
+    debug: {}
 
   tasks:
     - name: Create Peer Orgs
@@ -43,20 +45,19 @@
     - name: Create Gateways
       include_tasks: tasks/prep-gateways.yaml
 
-    - debug: var=orgList
-    - debug: var=chanList
-    - debug: var=contractList
-    - debug: var=gatewayList
-
+    - name: Copy master config to file
+      copy:
+        content: "{{debug | combine({'orgList': orgList, 'chanList':chanList, 'contractList': contractList, 'gatewayList': gatewayList}) | to_nice_json }}"
+        dest: "./debugFile.json"
 
     - include_role:
         name: ibm.blockchain_platform_manager
       vars:
-        state: present
+        state: absent
         infrastructure:
           type: docker
           docker:
-            network: huy_network
+            network: my_network
         organizations: "{{orgList}}"
         channels: "{{chanList}}"
         contracts: "{{contractList}}"

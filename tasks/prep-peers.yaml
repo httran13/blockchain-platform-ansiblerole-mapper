@@ -4,7 +4,6 @@
     msp_id: "{{org.name}}MSP"
     ca_id: "{{org.name}}CA"
     admin: "{{org.name}}-admin"
-    peerName: "{{org.name}}Peer{{count}}"
     peers: []
     anchor_peers: []
     committing_peers: []
@@ -14,8 +13,6 @@
 - name: Get peer list
   include_tasks: build-peers.yaml
   with_sequence: start=1 end={{ org.nodeCount }}
-
-#- debug: var=peers
 
 - name: add items to array
   set_fact:
