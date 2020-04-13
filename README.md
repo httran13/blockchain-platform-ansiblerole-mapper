@@ -2,10 +2,10 @@
 
 This playbook utilizes [blockchain_platform_manager role](https://galaxy.ansible.com/ibm/blockchain_platform_manager) by removing the redundant tasks
 of manually modifying the playbook in various variables for BPM-role. You can now specify from a single json the values 
-to define the topology of your network and the playbook will map the values appropiately for BPM-role.
+to define the topology of your network and the playbook will map the values appropriately for BPM-role.
 
 You will want to use this for an extremely fast setup to bootstrap your orgs, channels and chaincode. Do not use this
-if you require specifics configurations. Current assumptions are made with this initial setup and future
+if you require specific configurations. Current assumptions are made with this initial setup and future
 plans are in place to be able to adjust some of these parameters.
 
 ## Assumptions
@@ -47,3 +47,7 @@ Core assumptions from BPM-role will exists. For this playbook, it will assume:
 - name - Name of the chaincode
 - version - Version of the chaincode
 - location - directory where the chaincode lives locally
+
+# Quickstart
+
+ansible-playbook master_playbook.yaml
