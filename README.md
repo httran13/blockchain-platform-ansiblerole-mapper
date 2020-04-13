@@ -22,6 +22,7 @@ Core assumptions from BPM-role will exists. For this playbook, it will assume:
  - all wallets, gateways, nodes output from BPM is in the format nodes/\<orgName>, wallets/\<orgName>, gateways/\<orgName>
  - All organizations gateways will be created
  - endorsement policy of contract uses OneOf(1, ...*ALL ORGS MEMEBERS*)
+ - couchdb usage
  
 # Dependencies and Installation
 
