@@ -12,8 +12,6 @@
   set_fact:
     consortiumMembers: "{{consortiumMembers + orgList}}"
 
-#- debug: var=consortiumMembers
-
 - name: Build orderer
   set_fact:
     orderer: "{{ lookup('template', 'orderer.json.j2') | combine({'consortium':{'members':consortiumMembers}}) }}"
