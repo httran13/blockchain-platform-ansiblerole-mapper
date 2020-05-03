@@ -5,14 +5,10 @@
     Orgs:
       - {name: 'org1', nodeCount: 1, tls: false, dockerPortPrefix: 20, type: orderer }
       - {name: 'org2', nodeCount: 2, tls: false, dockerPortPrefix: 21, type: peer }
-      - {name: 'org3', nodeCount: 3, tls: false, dockerPortPrefix: 22, type: peer }
     Chans:
       - {name: 'chan1'}
-      - {name: 'chan2'}
     Contracts:
       - {name: "fabcar", version: "1.0.0", location: "{{playbook_dir}}"}
-      - {name: "org2cc", version: "1.0.0", location: "{{playbook_dir}}"}
-      - {name: "huy2", version : "1.0.0", location: "{{playbook_dir}}"}
     orgList: []
     chanList: []
     contractList: []
@@ -53,7 +49,7 @@
     - include_role:
         name: ibm.blockchain_platform_manager
       vars:
-        state: absent
+        state: present
         infrastructure:
           type: docker
           docker:

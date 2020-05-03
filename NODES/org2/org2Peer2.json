@@ -1,0 +1,11 @@
+{
+    "api_url": "grpc://localhost:21255",
+    "chaincode_url": "grpc://localhost:21256",
+    "container_name": "org2Peer2.org2.com",
+    "identity": "org2-admin",
+    "msp_id": "org2MSP",
+    "name": "org2Peer2",
+    "short_name": "org2Peer2",
+    "type": "fabric-peer",
+    "wallet": "org2"
+}
